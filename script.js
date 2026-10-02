@@ -46,14 +46,14 @@ function dibujarRama(startX, startY, len, angle, branchWidth) {
 
 function generarArbol() {
     const rootX = canvas.width / 2;
-    const rootY = canvas.height;
     
-    // Detección para móviles con mayor ajuste de proporción
+    // Detección para móviles
     const esMovil = window.innerWidth < 768;
     
-    // Reducimos el largo para que el árbol no invada demasiado el espacio de la luna
-    const largoInicial = esMovil ? canvas.height * 0.11 : canvas.height * 0.21; 
-    const grosorInicial = esMovil ? 8 : 13;
+    // Si es móvil, anclamos la base ligeramente más arriba y reducimos el largo de las ramas
+    const rootY = esMovil ? canvas.height * 0.92 : canvas.height;
+    const largoInicial = esMovil ? canvas.height * 0.12 : canvas.height * 0.21; 
+    const grosorInicial = esMovil ? 7 : 13;
 
     dibujarRama(rootX, rootY, largoInicial, 0, grosorInicial);
 }
