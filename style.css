@@ -32,17 +32,17 @@ body {
     left: 0;
 }
 
-/* Gran Luna de Fondo - Se adapta responsivamente */
+/* Gran Luna de Fondo - Optimizada para no verse exagerada en móviles */
 .luna {
     position: absolute;
-    top: 15%;
+    top: 12%;
     left: 50%;
     transform: translateX(-50%);
-    width: min(280px, 60vw);
-    height: min(280px, 60vw);
+    width: min(220px, 45vw);
+    height: min(220px, 45vw);
     background: radial-gradient(circle, #fffdf0 0%, #fae8b1 60%, transparent 100%);
     border-radius: 50%;
-    box-shadow: 0 0 60px rgba(250, 232, 177, 0.5);
+    box-shadow: 0 0 45px rgba(250, 232, 177, 0.4);
     z-index: 1;
     pointer-events: none;
 }
@@ -55,7 +55,7 @@ canvas {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 1;
+    z-index: 2; /* Por encima de la luna para que las ramas abracen la luna con elegancia */
 }
 
 /* Suelo */
@@ -68,18 +68,18 @@ canvas {
     background: linear-gradient(to bottom, #111a2e, #070b14);
     border-top: 4px solid #1c2b47;
     border-radius: 50% 50% 0 0 / 20px 20px 0 0;
-    z-index: 2;
+    z-index: 3;
 }
 
 /* Mensaje poético */
 .titulo-sakura {
     position: absolute;
-    top: 5%;
+    top: 4%;
     width: 100%;
     text-align: center;
     padding: 0 15px;
     color: #ffccd5;
-    font-size: clamp(18px, 4vw, 24px);
+    font-size: clamp(16px, 3.5vw, 22px);
     font-style: italic;
     letter-spacing: 2px;
     text-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
@@ -100,7 +100,7 @@ canvas {
     left: 50%;
     transform: translateX(-50%);
     color: rgba(255, 204, 213, 0.7);
-    font-size: clamp(12px, 3vw, 14px);
+    font-size: clamp(11px, 2.5vw, 13px);
     letter-spacing: 1px;
     z-index: 10;
     pointer-events: none;
@@ -159,19 +159,25 @@ canvas {
 
 /* Ajustes específicos para celulares */
 @media (max-width: 768px) {
-    #titulo {
-        font-size: 1.2rem !important;
-        margin-top: 10px !important;
+    .luna {
+        width: 160px;
+        height: 160px;
+        top: 10%;
+    }
+
+    .titulo-sakura {
+        font-size: 1.1rem !important;
+        top: 3% !important;
     }
     
-    #instruccion {
-        font-size: 0.8rem !important;
-        bottom: 70px !important;
+    .instruccion {
+        font-size: 0.75rem !important;
+        bottom: 65px !important;
     }
 
     .control-btn {
-        bottom: 20px !important;
-        padding: 10px 20px !important;
-        font-size: 0.9rem !important;
+        bottom: 15px !important;
+        padding: 8px 18px !important;
+        font-size: 0.85rem !important;
     }
 }
