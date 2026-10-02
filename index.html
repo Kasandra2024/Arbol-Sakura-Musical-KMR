@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árbol de Sakura Interactivo K.M.R</title>
+    <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="escenario">
+        <div class="titulo-sakura" id="titulo">"Bajo la luna, florece la primavera..."</div>
+        <div class="luna"></div>
+        <canvas id="canvasSakura"></canvas>
+        <div class="suelo"></div>
+        <div class="instruccion" id="instruccion">Haz clic en la pantalla para esparcir pétalos</div>
+    </div>
+
+    <button class="control-btn" onclick="iniciarExperiencia()">
+        🌸 Florecer y Escuchar
+    </button>
+
+    <!-- Reproductor de Audio -->
+    <audio id="musica">
+        <source src="https://misleading-red-zaozz68z.edgeone.app/La%20Oreja%20de%20Van%20Gogh%20-%20Rosas%20(Letra_Lyrics)(MP3_160K).mp3" type="audio/mpeg">
+    </audio> 
+
+    <!-- Enlace al archivo JavaScript externo -->
+    <script src="script.js"></script>
+</body>
+</html>

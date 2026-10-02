@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to bottom, #0b1326 0%, #1c2a4a 60%, #3a4d7c 100%);
+    overflow: hidden;
+    position: relative;
+    font-family: 'Georgia', serif;
+}
+
+.escenario {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+/* Gran Luna de Fondo */
+.luna {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, #fffdf0 0%, #fae8b1 60%, transparent 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 60px rgba(250, 232, 177, 0.5);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Lienzo del Árbol y Pétalos */
+canvas {
+    position: absolute;
+    bottom: 40px; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+/* Suelo */
+.suelo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(to bottom, #111a2e, #070b14);
+    border-top: 4px solid #1c2b47;
+    border-radius: 50% 50% 0 0 / 20px 20px 0 0;
+    z-index: 2;
+}
+
+/* Mensaje poético - Ubicado en la parte izquierda */
+.titulo-sakura {
+    position: absolute;
+    top: 8%;
+    width: 100%;
+    text-align: left;
+    padding-left: 5%;
+    color: #ffccd5;
+    font-size: 24px;
+    font-style: italic;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
+    z-index: 10;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 2s ease;
+}
+
+.titulo-sakura.mostrar {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.instruccion {
+    position: absolute;
+    bottom: 110px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 204, 213, 0.6);
+    font-size: 14px;
+    letter-spacing: 1px;
+    z-index: 10;
+    pointer-events: none;
+    animation: parpadeo 2s infinite;
+}
+
+@keyframes parpadeo {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+/* Botón Multimedia */
+.control-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    padding: 12px 24px;
+    border: 1px solid #ff8fa3;
+    border-radius: 30px;
+    background: rgba(11, 19, 38, 0.85);
+    backdrop-filter: blur(8px);
+    color: #ffccd5;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255, 143, 163, 0.2);
+    transition: all 0.4s ease;
+    z-index: 100;
+}
+
+.control-btn:hover {
+    transform: translateY(-3px);
+    background: #ff8fa3;
+    color: #0b1326;
+    box-shadow: 0 5px 25px rgba(255, 143, 163, 0.5);
+}
+
+/* Ráfaga de pétalos al hacer Clic */
+.click-petal {
+    position: absolute;
+    background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+    border-radius: 0 100px 40px 100px;
+    pointer-events: none;
+    z-index: 5;
+    animation: caerClick linear forwards;
+}
+
+@keyframes caerClick {
+    0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
+    100% { transform: translate(var(--x), var(--y)) rotate(360deg) scale(0.3); opacity: 0; }
+}
