@@ -46,12 +46,14 @@ body {
 
 /* Lienzo del Árbol y Pétalos */
 canvas {
+    display: block;
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 3;
+    width: 100vw;
+    height: 100dvh;
+    object-fit: contain; /* Evita deformaciones */
+    z-index: 1;
 }
 
 /* Suelo */

@@ -47,13 +47,16 @@ function dibujarRama(startX, startY, len, angle, branchWidth) {
 function generarArbol() {
     const rootX = canvas.width / 2;
     const rootY = canvas.height;
-    const largoInicial = canvas.height * 0.21; 
-    const grosorInicial = 13;
+    
+    // Detección automática para pantallas móviles o de PC
+    const esMovil = window.innerWidth < 768;
+    const largoInicial = esMovil ? canvas.height * 0.14 : canvas.height * 0.21; 
+    const grosorInicial = esMovil ? 9 : 13;
 
     dibujarRama(rootX, rootY, largoInicial, 0, grosorInicial);
 }
 
-//  PÉTALOS EN MOVIMIENTO LENTO 
+// PÉTALOS EN MOVIMIENTO LENTO 
 class PetaloSakura {
     constructor() {
         this.x = Math.random() * canvas.width;
@@ -107,7 +110,7 @@ function bucleAnimacion() {
     animacionID = requestAnimationFrame(bucleAnimacion);
 }
 
-//  INTERACTIVIDAD CLICK 
+// INTERACTIVIDAD CLICK 
 window.addEventListener("click", (e) => {
     if (!experienciaIniciada || e.target.classList.contains('control-btn')) return;
 
@@ -134,7 +137,7 @@ window.addEventListener("click", (e) => {
     }
 });
 
-//  INTERFAZ DE INICIO 
+// INTERFAZ DE INICIO 
 function iniciarExperiencia() {
     if (audio.paused) {
         audio.play().catch(err => console.log("Permiso de audio requerido."));
