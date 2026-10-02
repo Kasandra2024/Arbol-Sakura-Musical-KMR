@@ -48,10 +48,12 @@ function generarArbol() {
     const rootX = canvas.width / 2;
     const rootY = canvas.height;
     
-    // Detección automática para pantallas móviles o de PC
+    // Detección para móviles con mayor ajuste de proporción
     const esMovil = window.innerWidth < 768;
-    const largoInicial = esMovil ? canvas.height * 0.14 : canvas.height * 0.21; 
-    const grosorInicial = esMovil ? 9 : 13;
+    
+    // Reducimos el largo para que el árbol no invada demasiado el espacio de la luna
+    const largoInicial = esMovil ? canvas.height * 0.11 : canvas.height * 0.21; 
+    const grosorInicial = esMovil ? 8 : 13;
 
     dibujarRama(rootX, rootY, largoInicial, 0, grosorInicial);
 }

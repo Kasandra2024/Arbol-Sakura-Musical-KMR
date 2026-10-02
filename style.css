@@ -12,13 +12,10 @@ html {
 }
 
 body {
-    min-height: 100vh;
-    min-height: 100dvh;
-    width: 100%;
-    background: linear-gradient(to bottom, #0b1326 0%, #1c2a4a 60%, #3a4d7c 100%);
     overflow: hidden;
-    position: relative;
-    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0b1329;
 }
 
 .escenario {
@@ -47,12 +44,11 @@ body {
 /* Lienzo del Árbol y Pétalos */
 canvas {
     display: block;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100dvh;
-    object-fit: contain; /* Evita deformaciones */
+    height: 100vh;
     z-index: 1;
 }
 
