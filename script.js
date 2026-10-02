@@ -11,7 +11,7 @@ let petalosConstantes = [];
 
 function ajustarCanvas() {
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight - 40;
+    canvas.height = window.innerHeight;
     generarArbol(); 
 }
 window.addEventListener("resize", ajustarCanvas);
@@ -158,5 +158,5 @@ function iniciarExperiencia() {
 }
 
 canvas.width = window.innerWidth;
-canvas.height = window.innerHeight - 40;
+canvas.height = window.innerHeight;
 generarArbol();

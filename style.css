@@ -4,9 +4,17 @@
     box-sizing: border-box;
 }
 
+html {
+    background-color: #0b1326;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
 body {
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
     background: linear-gradient(to bottom, #0b1326 0%, #1c2a4a 60%, #3a4d7c 100%);
     overflow: hidden;
     position: relative;
@@ -21,14 +29,14 @@ body {
     left: 0;
 }
 
-/* Gran Luna de Fondo */
+/* Gran Luna de Fondo - Se adapta responsivamente */
 .luna {
     position: absolute;
-    top: 18%;
+    top: 15%;
     left: 50%;
     transform: translateX(-50%);
-    width: 280px;
-    height: 280px;
+    width: min(280px, 60vw);
+    height: min(280px, 60vw);
     background: radial-gradient(circle, #fffdf0 0%, #fae8b1 60%, transparent 100%);
     border-radius: 50%;
     box-shadow: 0 0 60px rgba(250, 232, 177, 0.5);
@@ -39,7 +47,7 @@ body {
 /* Lienzo del Árbol y Pétalos */
 canvas {
     position: absolute;
-    bottom: 40px; 
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
@@ -52,46 +60,48 @@ canvas {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 60px;
+    height: 50px;
     background: linear-gradient(to bottom, #111a2e, #070b14);
     border-top: 4px solid #1c2b47;
     border-radius: 50% 50% 0 0 / 20px 20px 0 0;
     z-index: 2;
 }
 
-/* Mensaje poético - Ubicado en la parte izquierda */
+/* Mensaje poético */
 .titulo-sakura {
     position: absolute;
-    top: 8%;
+    top: 5%;
     width: 100%;
-    text-align: left;
-    padding-left: 5%;
+    text-align: center;
+    padding: 0 15px;
     color: #ffccd5;
-    font-size: 24px;
+    font-size: clamp(18px, 4vw, 24px);
     font-style: italic;
     letter-spacing: 2px;
     text-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
     z-index: 10;
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translateY(-10px);
     transition: all 2s ease;
 }
 
 .titulo-sakura.mostrar {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
 }
 
 .instruccion {
     position: absolute;
-    bottom: 110px;
+    bottom: 75px;
     left: 50%;
     transform: translateX(-50%);
-    color: rgba(255, 204, 213, 0.6);
-    font-size: 14px;
+    color: rgba(255, 204, 213, 0.7);
+    font-size: clamp(12px, 3vw, 14px);
     letter-spacing: 1px;
     z-index: 10;
     pointer-events: none;
+    text-align: center;
+    width: 90%;
     animation: parpadeo 2s infinite;
 }
 
@@ -100,27 +110,29 @@ canvas {
     50% { opacity: 0.8; }
 }
 
-/* Botón Multimedia */
+/* Botón Multimedia Centrado Abajo */
 .control-btn {
     position: fixed;
-    bottom: 25px;
-    right: 25px;
-    padding: 12px 24px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 22px;
     border: 1px solid #ff8fa3;
     border-radius: 30px;
-    background: rgba(11, 19, 38, 0.85);
+    background: rgba(11, 19, 38, 0.9);
     backdrop-filter: blur(8px);
     color: #ffccd5;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 0 15px rgba(255, 143, 163, 0.2);
+    box-shadow: 0 0 15px rgba(255, 143, 163, 0.3);
     transition: all 0.4s ease;
     z-index: 100;
+    white-space: nowrap;
 }
 
 .control-btn:hover {
-    transform: translateY(-3px);
+    transform: translateX(-50%) translateY(-3px);
     background: #ff8fa3;
     color: #0b1326;
     box-shadow: 0 5px 25px rgba(255, 143, 163, 0.5);
